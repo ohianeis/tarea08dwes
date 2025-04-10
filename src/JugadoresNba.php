@@ -51,6 +51,8 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             if($existe){
                 return 'este jugador ya esta añadido a favoritos';
             }else{
+          //     var_dump($datos);
+             //  exit;
                 $this->conexion->beginTransaction();
                 $stmt2=$this->conexion->prepare($sql);
                 $stmt2->bindParam(1,$datos['playerId']);
@@ -62,9 +64,9 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 $stmt2->bindParam(7,$datos['numeroJersey']);
                 $stmt2->bindParam(8,$datos['college']);
                 $stmt2->bindParam(9,$datos['country']);
-                $stmt2->bindParam(10,$datos['draft_year']);
-                $stmt2->bindParam(11,$datos['draft_round']);
-                $stmt2->bindParam(12,$datos['draft_number']);
+                $stmt2->bindParam(10,$datos['draftYear']);
+                $stmt2->bindParam(11,$datos['draftRound']);
+                $stmt2->bindParam(12,$datos['draftNumber']);
                 $stmt2->bindParam(13,$datos['idTeam']);
                 if($stmt2->execute()){
                     $this->conexion->commit();
