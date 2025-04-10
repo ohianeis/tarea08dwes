@@ -1,13 +1,15 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-if(!isset($_SESSION['usuario'])){
+session_start();
+if (!isset($_SESSION['usuario'])) {
     header("Location: index.php");
     exit;
 }
+
 use Oianeis\ApiNba\Conexion;
 use Oianeis\ApiNba\JugadoresNba;
 
-session_start();
+
 $idJugador = '';
 $idEquipo = '';
 
@@ -41,24 +43,17 @@ $resultado = $resultado['data'];
 
     <title>Detalles Jugador y Equipo</title>
     <style>
-        /* Perfil fijo */
         .perfil-container {
             width: 180px;
-            /* Hace que sea más estrecho sin ocupar tanto espacio */
             background-color: #f8f9fa;
-            /* Fondo más suave */
             padding: 15px;
             border-radius: 8px;
-            /* Bordes redondeados */
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Sombra para que destaque mejor */
             position: absolute;
             left: 15px;
-            /* Mantiene la separación del contenido */
             top: 120px;
         }
 
-        /* Contenedores de datos */
         .contenedor-datos {
             background-color: white;
             padding: 20px;
@@ -72,7 +67,6 @@ $resultado = $resultado['data'];
 <body style="background-color: #d3d3d3;">
     <div class="container mt-3">
         <div class="row">
-            <!-- PERFIL FIJO COMPLETAMENTE A LA IZQUIERDA -->
             <aside class="col-md-1 bg-white p-3 rounded shadow-sm perfil-container">
                 <h4 class="text-center" style="color: #003197;">Perfil</h4>
                 <p><strong>Usuario:</strong> <?php echo isset($_SESSION['usuario']) ? $_SESSION['usuario']['nombre'] : 'Invitado'; ?></p>
@@ -81,28 +75,27 @@ $resultado = $resultado['data'];
                     <button type="submit" class="btn btn-success w-100">Volver</button>
                 </form>
             </aside>
-<!-- BUSCADOR FIJO EN LA PARTE SUPERIOR DERECHA -->
-<!-- BUSCADOR PEQUEÑO EN LA PARTE SUPERIOR DERECHA -->
-<a href="buscador.php" class="btn d-flex align-items-center justify-content-center text-white"
-   style="position: fixed; top: 10px;background-color: #003197; right: 20px; width: 150px; height: 40px; padding: 6px 10px; border-radius: 6px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-size: 14px;">
-    <i class="bi bi-search me-1"></i> Buscar
-</a>
-<a href="index.php" class="btn d-flex align-items-center justify-content-center text-white"
-   style="position: fixed; top: 10px; background-color: #003197; left: 20px; width: 150px; height: 40px; padding: 6px 10px; border-radius: 6px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-size: 14px;">
-    <i class="bi bi-box-arrow-left me-1"></i> Salir
-</a>
 
-            <!-- CONTENEDOR PRINCIPAL MÁS ANCHO -->
+            <a href="buscador.php" class="btn d-flex align-items-center justify-content-center text-white"
+                style="position: fixed; top: 10px;background-color: #003197; right: 20px; width: 150px; height: 40px; padding: 6px 10px; border-radius: 6px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-size: 14px;">
+                <i class="bi bi-search me-1"></i> Buscar
+            </a>
+            <a href="index.php" class="btn d-flex align-items-center justify-content-center text-white"
+                style="position: fixed; top: 10px; background-color: #003197; left: 20px; width: 150px; height: 40px; padding: 6px 10px; border-radius: 6px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); font-size: 14px;">
+                <i class="bi bi-box-arrow-left me-1"></i> Salir
+            </a>
+
+
             <div class="col-md-11">
-                <!-- CABECERA CON MÁS ESPACIO -->
+
                 <div class="p-4 rounded bg-white shadow-sm text-center mt-4">
                     <img src="../assets/nba.jpg" alt="NBA Logo" width="200" height="110">
-       
+
                 </div>
 
-                <!-- FILA PARA JUGADOR Y EQUIPO UNO AL LADO DEL OTRO -->
+
                 <div class="row mt-4">
-                    <!-- SECCIÓN JUGADOR MÁS ANCHA -->
+
                     <div class="col-md-6">
                         <div class="contenedor-datos p-5 mb-4">
                             <h2 class="text-center" style="color: #003197;">Datos del Jugador</h2>
@@ -120,7 +113,7 @@ $resultado = $resultado['data'];
                         </div>
                     </div>
 
-                    <!-- SECCIÓN EQUIPO MÁS ANCHA -->
+
                     <div class="col-md-6">
                         <div class="contenedor-datos p-5 mb-4">
                             <h2 class="text-center" style="color: #003197;">Datos del Equipo</h2>

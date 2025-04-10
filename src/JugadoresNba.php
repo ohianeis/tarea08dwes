@@ -39,20 +39,13 @@ class JugadoresNba extends PDO{
             $playerId=intval($playerId);
             try{
           $sql='INSERT INTO favoritos (player_id, first_name, last_name, position, height, weight, numeroJersey, college, country, draft_year, draft_round, draft_number, team) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-';
-            $sqlComprobacion='SELECT player_id from favoritos where player_id=?';
-         
-            
-          //  $stmt1=$this->conexion->prepare($sqlComprobacion);
-            //$stmt1->bindparam(1,$datos['playerId']);
-            //$stmt1->execute();
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+ 
             $existe=$this->existeJugador($playerId);
             if($existe){
                 return 'este jugador ya esta añadido a favoritos';
             }else{
-          //     var_dump($datos);
-             //  exit;
+
                 $this->conexion->beginTransaction();
                 $stmt2=$this->conexion->prepare($sql);
                 $stmt2->bindParam(1,$datos['playerId']);

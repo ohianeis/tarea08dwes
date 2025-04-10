@@ -12,7 +12,7 @@ use PDOException;
  * Esta clase se encarga del logueo del usuario
  * 
  * @author ohiane irure
- * @since 8-01-2025
+ * @since 8-04-2025
  */
 class Login{
     /**
@@ -35,9 +35,8 @@ class Login{
     /**
      * Comprueba si existe el usuario en la base de datos para darle acceso
      * 
-     * @param string $nombre Nombre del usuario.
-     * @param string $pass Password proporcionado, se hash antes de comprobarlo.
-     * @param string $idioma Idioma seleccionado por el usuario.
+     * 
+     * 
      * 
      * * @return array|string Datos del usuario si existe en la base de datos, menaje si usuario o contraseña incorrectos
      */

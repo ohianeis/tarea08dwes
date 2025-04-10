@@ -11,7 +11,7 @@ use PDOException;
  * Se usa para conectar con la base de datos, extiende de PDO para usar esta forma de consultas y sus métodos.
  * 
  * @author ohiane irure
- * @since 08-01-2025.
+ * @since 11-4-2025.
  */
 class Conexion extends PDO
 {
@@ -61,7 +61,7 @@ class Conexion extends PDO
     /**
      * Constructor de la clase
      * 
-     * Se configuran las opciones de la conexion, se captura posibles errores, si hay algún error saldra la pagina errorConexion.php.
+     * 
      */
     public function __construct()
     {
@@ -71,7 +71,6 @@ class Conexion extends PDO
             $this->exitoConexion=true;
         } catch (PDOException $e) {
             $this->exitoConexion=false;
-            require '../public/config/errorConexion.php';
             echo '<p>' . $e->getMessage() . '</p>';
         }
     }

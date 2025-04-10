@@ -5,7 +5,7 @@ use Oianeis\ApiNba\JugadoresNba;
 
 function añadirJugador($datos) {
     $conexion = new Conexion();
-    $pdo = $conexion->getConexion(); // Aseguramos que obtenemos la conexión
+    $pdo = $conexion->getConexion(); 
     if (!$pdo) {
         return ['error' => 'Error de conexión a la base de datos'];
     }
@@ -17,9 +17,9 @@ function añadirJugador($datos) {
     if ($respuesta === true) {
         return ['success' => true];
     } elseif (is_string($respuesta)) {
-        return ['info' => $respuesta]; // ✅ Evita la asignación dentro del return
+        return ['info' => $respuesta]; 
     } else {
-        return ['error' => $respuesta]; // ✅ Lo mismo aquí
+        return ['error' => $respuesta]; 
     }
 }
 

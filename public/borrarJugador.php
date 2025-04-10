@@ -10,18 +10,18 @@ function borrarJugador($id) {
         return ['error' => 'Error de conexión a la base de datos'];
     }
 
-    // Pasamos la conexión y los datos correctamente
+ 
     $jugadores = new JugadoresNba($pdo);
     $respuesta = $jugadores->borrarJugador($id);
 
     if ($respuesta === true) {
         return ['success' => true];
     } else {
-        return ['error' => $respuesta]; // ✅ Lo mismo aquí
+        return ['error' => $respuesta];
     }
 }
 
-// Validar que $_POST tiene datos antes de procesar
+
 if (empty($_POST)) {
     echo json_encode(['error' => 'No se recibieron datos válidos']);
     exit;
