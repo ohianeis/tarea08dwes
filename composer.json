@@ -1,0 +1,17 @@
+{
+    "name": "oianeis/api-nba",
+    "description": "tarea 1 sevicios web consumo api balldontlie.io",
+    "autoload": {
+        "psr-4": {
+            "Oianeis\\ApiNba\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ohiane"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}

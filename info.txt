@@ -1,0 +1,10 @@
+TAREA RESUMEN
+
+-Cliente http hecho en la clase ApiCliente, puesto ahi el cacert.pem y hecho método para pedir url; como url para teams cambiaba a la de los jugadores se mira si se
+pasa un id.
+-Clases para Login y Conexión como en otras tareas y JuagadoresNba que controla las acciones en la tabla favoritos de la base de datos
+-Carpeta public archivo:    
+     *Tanto añadirJugador y borrarJugador se usan junto con ajax en las páginas buscador.php y favoritos.php respectivamente para hacer el añadido del jugador 
+     favorito y el borrado de este también en la misma página; usado sewwtAlert en js para los alert con la info de errores o confirmacion. Tambien 
+     validarLogin con el index para el logueo
+-Sql crea las tablas favoritos y usuario; inserta en usuario ohiane con contraseña ohianeis
